@@ -2,14 +2,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import App from '@/components/App';
 import AppFrame from '@/components/AppFrame';
+import PrivateRoute from '@/components/Auth/PrivateRoute';
 
 const Root = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/dashboard">
+        <PrivateRoute path="/dashboard">
           <AppFrame />
-        </Route>
+        </PrivateRoute>
         <Route>
           <App />
         </Route>

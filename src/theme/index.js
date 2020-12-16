@@ -17,6 +17,4 @@ const theme = createMuiTheme({
   },
 });
 
-theme.shadows = [];
-
 export default theme;

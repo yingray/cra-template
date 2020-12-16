@@ -1,9 +1,10 @@
 import React from 'react';
 
 import clsx from 'clsx';
+import firebase from 'firebase/app';
 
 import AppBar from '@material-ui/core/AppBar';
-import Badge from '@material-ui/core/Badge';
+import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,7 +20,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 
 import { mainListItems, secondaryListItems } from './listItems';
 
@@ -128,6 +128,9 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  const user = firebase.auth().currentUser;
+  const { displayName, photoURL } = user;
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -145,11 +148,7 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <Avatar alt={displayName} src={photoURL} />
         </Toolbar>
       </AppBar>
       <Drawer
