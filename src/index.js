@@ -1,7 +1,8 @@
 import 'firebase/auth';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
 import firebase from 'firebase/app';
 
@@ -10,19 +11,22 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import firebaseConfig from './config/firebase';
 import reportWebVitals from './reportWebVitals';
+import store from './store';
 import theme from './theme';
 import Root from './views';
 
 firebase.initializeApp(firebaseConfig);
 
 const unsubscribe = firebase.auth().onAuthStateChanged(() => {
-  ReactDOM.render(
+  render(
     <React.StrictMode>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
-        <Root />
-      </ThemeProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Root />
+        </ThemeProvider>
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
   );
