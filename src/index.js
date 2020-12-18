@@ -10,8 +10,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import firebaseConfig from './config/firebase';
 import reportWebVitals from './reportWebVitals';
-import Root from './routes';
 import theme from './theme';
+import Root from './views';
 
 firebase.initializeApp(firebaseConfig);
 
