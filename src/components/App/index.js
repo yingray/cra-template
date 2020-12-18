@@ -1,9 +1,19 @@
 import './App.css';
 
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
 import logo from '@/assets/images/logo.svg';
+import { fetchData } from '@/slices/data';
 import Google from '../Auth/Google';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
