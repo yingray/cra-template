@@ -5,14 +5,14 @@ const theme = createMuiTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: 'rgb(36, 37, 38)',
+      main: '#20232a',
     },
     secondary: {
       main: 'rgb(9, 211, 172)',
     },
     background: {
-      paper: 'rgb(36, 37, 38)',
-      default: 'rgb(24, 25, 26)',
+      paper: '#20232a',
+      default: 'rgb(40, 44, 52)',
     },
   },
 });

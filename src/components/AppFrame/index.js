@@ -17,11 +17,11 @@ const AppFrame = (props) => {
 
   const handleDrawerOpen = useCallback(() => {
     setOpen(true);
-  });
+  }, []);
 
   const handleDrawerClose = useCallback(() => {
     setOpen(false);
-  });
+  }, []);
 
   return (
     <div className={classes.root}>

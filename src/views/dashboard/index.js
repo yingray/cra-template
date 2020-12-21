@@ -1,9 +1,12 @@
+import { Route, Switch } from 'react-router-dom';
+
 import clsx from 'clsx';
 
 import { Box, Container, Grid, Link, Paper, Typography } from '@material-ui/core';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 import AppFrame from '@/components/AppFrame';
+import PercentageCirclePage from './percentage_circle';
 import styles from './styles';
 
 const useStyles = makeStyles(createStyles(styles));
@@ -28,23 +31,30 @@ const Dashboard = () => {
   return (
     <AppFrame>
       <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={3}>
-          {/* Chart */}
-          <Grid item xs={12} md={8} lg={9}>
-            <Paper className={fixedHeightPaper}>Chart</Paper>
-          </Grid>
-          {/* Recent Deposits */}
-          <Grid item xs={12} md={4} lg={3}>
-            <Paper className={fixedHeightPaper}>Deposits</Paper>
-          </Grid>
-          {/* Recent Orders */}
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>Orders</Paper>
-          </Grid>
-        </Grid>
-        <Box pt={4}>
-          <Copyright />
-        </Box>
+        <Switch>
+          <Route path="/dashboard/percentage_circle">
+            <PercentageCirclePage />
+          </Route>
+          <Route>
+            <Grid container spacing={3}>
+              {/* Chart */}
+              <Grid item xs={12} md={8} lg={9}>
+                <Paper className={fixedHeightPaper}>Chart</Paper>
+              </Grid>
+              {/* Recent Deposits */}
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper className={fixedHeightPaper}>Deposits</Paper>
+              </Grid>
+              {/* Recent Orders */}
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>Orders</Paper>
+              </Grid>
+            </Grid>
+            <Box pt={4}>
+              <Copyright />
+            </Box>
+          </Route>
+        </Switch>
       </Container>
     </AppFrame>
   );

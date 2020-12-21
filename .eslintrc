@@ -27,7 +27,6 @@
     "jsx-a11y/anchor-is-valid": 0,
     "react/no-multi-comp": 0,
     "react/display-name": 0,
-    "react-hooks/exhaustive-deps": 0,
     "react/react-in-jsx-scope": 0,
     // warn
     "react/prop-types": 0,
